@@ -6,7 +6,8 @@ import java.sql.SQLException;
 
 public class DbConnector {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ac_perpustakaan";
+    private static final String DATABASE_URL_CONFIG = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/ac_perpustakaan" + DATABASE_URL_CONFIG;
     private static final String DATABASE_USERNAME = "root";
     private static final String DATABASE_PASSWORD = "";
 
@@ -19,5 +20,4 @@ public class DbConnector {
         }
         return connection;
     }
-
 }
