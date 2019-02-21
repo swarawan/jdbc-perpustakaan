@@ -3,10 +3,7 @@ package id.academy.view;
 import id.academy.database.DbConnector;
 import id.academy.model.AddBook;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class BookServiceImpl implements BookService {
 
@@ -25,8 +22,8 @@ public class BookServiceImpl implements BookService {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, book.getName());
             preparedStatement.setString(2, book.getAuthor());
-            preparedStatement.setDate(3, new Date(System.currentTimeMillis()));
-            preparedStatement.setDate(4, new Date(System.currentTimeMillis()));
+            preparedStatement.setTimestamp(3, new Timestamp(System.currentTimeMillis()));
+            preparedStatement.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
 
             boolean isSuccess = preparedStatement.executeUpdate() > 0;
             if (isSuccess) {
